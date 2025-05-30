@@ -1,17 +1,23 @@
+// Ce script récupère le cours actuel du Bitcoin en dollars américains (USD)
+// en utilisant l'API CryptoCompare, puis affiche le résultat dans la console.
+
 async function obtenirCours() {
     try {
-        // Exemple d'API pour les cours de crypto-monnaies (par exemple, le cours du Bitcoin en USD)
-        const response = await fetch("https://api.coindesk.com/v1/bpi/currentprice/BTC.json");
+        // 1. Effectuer une requête HTTP GET vers l'API CryptoCompare
+        const response = await fetch("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD");
+        
+        // 2. Convertir la réponse en format JSON
         const data = await response.json();
 
-        // Extraire le prix en USD
-        const prixUSD = data.bpi.USD.rate;
+        // 3. Extraire le prix du Bitcoin en USD depuis la réponse JSON
+        const prixUSD = data.USD;
         
-        // Utilisation du retour chariot pour "réécrire" la ligne dans la console
+        // 4. Afficher le prix du Bitcoin dans la console
         process.stdout.write(`Bitcoin : ${prixUSD}$`);
     } catch (error) {
         console.error("Erreur lors de la récupération des données :", error);
     }
 }
 
+// 5. Appeler la fonction pour lancer la récupération du cours
 obtenirCours();
