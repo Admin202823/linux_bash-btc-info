@@ -13,8 +13,10 @@ async function obtenirCours() {
 
         // 3. Extraire le prix du Bitcoin en USD depuis la réponse JSON
         const prixUSD = data.USD;
-        
-        // 4. Afficher le prix du Bitcoin dans la console
+
+        // Effacer la ligne précédente et afficher la nouvelle valeur
+        process.stdout.clearLine(0);
+        process.stdout.cursorTo(0);
         process.stdout.write(`Bitcoin : ${prixUSD}$`);
     } catch (error) {
         console.error("Erreur lors de la récupération des données :", error);
@@ -23,4 +25,4 @@ async function obtenirCours() {
 
 // 5. Appeler la fonction pour lancer la récupération du cours
 obtenirCours();
-setInterval(obtenirCours, 500);
+setInterval(obtenirCours, 10000);

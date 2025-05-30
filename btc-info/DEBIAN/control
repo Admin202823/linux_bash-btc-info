@@ -2,7 +2,7 @@ Package: btc-info
 Version: 1.0
 Architecture: amd64
 Maintainer: A.dmin_ <a.dmin@mailo.com>
-Description: toolkit (of 2 tools now) to display btc cours in direct (auto actualisation or at the instant), using api.coindesk.com.
+Description: toolkit (of 2 tools now) to display btc cours in direct (auto actualisation or at the instant), using coindesk api.
 Homepage: https://github.com/Admin202823/linux_bash-btc-info.git
 Pre-Depends: nodejs
 Copyright: MIT license
